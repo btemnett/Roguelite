@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01E2937C-D46A-4F32-9D32-A0C0C60EACA2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EX1</RootNamespace>
+    <AssemblyName>EX1</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Armor.cs" />
+    <Compile Include="Bag.cs" />
+    <Compile Include="BagFullException.cs" />
+    <Compile Include="Character.cs" />
+    <Compile Include="CharacterFactory.cs" />
+    <Compile Include="CombatScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CombatScreen.Designer.cs">
+      <DependentUpon>CombatScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EquippedItems.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="GameOver.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameOver.Designer.cs">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InventoryScreen.Designer.cs">
+      <DependentUpon>InventoryScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventorySlotId.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ItemFactory.cs" />
+    <Compile Include="Junk.cs" />
+    <Compile Include="MainMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Potion.cs" />
+    <Compile Include="RogueliteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RogueliteForm.Designer.cs">
+      <DependentUpon>RogueliteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScreenId.cs" />
+    <Compile Include="Weapon.cs" />
+    <EmbeddedResource Include="CombatScreen.resx">
+      <DependentUpon>CombatScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameOver.resx">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryScreen.resx">
+      <DependentUpon>InventoryScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RogueliteForm.resx">
+      <DependentUpon>RogueliteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alan%27s Unicorn Blade of DOOM.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alan%27s Unicorn Helmet of DOOM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alan%27s Unicorn Vest of DOOM.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Armageddon, Razor of Hate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blade of the grave.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blood Infused Mithril Carver.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Breastplate of Shattered Hope.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chestpiece of Ending Bloodlust.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Greatplate of Fleeting Punishment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Helm of Haunted Dreams.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scaled Helmet of Burning Fortunes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scaled Hood of Demonic visions.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Solitude%27s Warblade.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spectral Forged Slicer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stormguard Bronze Vest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terror Iron Helm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\The Ultimate Helm of Destruction%28Spikey%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThunderGuard Iron Chestplate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\questionMark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fightingBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unicorn Blood.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Potion of Greater Healing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Potion of Healing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Potion of Legendary Healing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Potion of Lesser Healing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Iron Ingot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Jar of Ink.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leather Scraps.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leather Straps.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mystical Glowing Rock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refined Cloth.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ripped Leather Pants.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rotten Flesh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shattered Iron Jerken.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sheets of Parchment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shredded Fur.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Silk Blouse.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Torn Leather Bracers.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unknown Metal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vile of Blood.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vile of Mystical Fluid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Black Quil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blood Stained Cloth Strips.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Burnt Parchment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Iron Dust.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Helm of Sauron.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Helm of Sickness.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Helm of Troy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Helmet of Darkness.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Horned Helm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Jeweled Frost.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Poison Death.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Skeletal Helmet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Winged Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Amorphous Hood.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chain Male Helmet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gladiator Helmet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Helm of Anubis.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Helm of Fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Helm of Rage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fist of Wind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Grey Hide.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Puncturing Claws.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Puncturing Fangs.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rippled Hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slashing Claws.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tearing Fangs.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Venomous Fangs.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\White Hide.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Black Hide.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bludgeoning Claws.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Brown Hide.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fist of Fire.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fist of Ice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fist of Shadow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fist of Water.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Iron Vest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Jerken of Ice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kunoichi Chest Guard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Legion Armor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Red Guard Armor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rusty Bronze Breast Plate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scaled Breast Plate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Viscious Breast Plate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wooden Chest Plate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Armor of Agathas.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Armor of Evil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Armor of Shadows.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chest Plate of Anubis.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dragon Plate Armor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Felix Rogue Armor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Infested DeathBringer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NightBringer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pearl Crested Blade.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Steel Katana.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Steel Sword.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sword of Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sword of Sealing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sword of Shadows.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assassins Sword.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blade of Souls.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blade of the Raven Queen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blade of the Willow Wisp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Demon Blood Dagger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Executioner%27s GreatSword.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hassassin Dagger.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark Magic Armor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Helm of the All-Seeing Eye.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Helmet of the Deceiver.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Staff of Endless Fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\The Hand of Vecna.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wolf Claws.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wolven Armor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Necromancers Robes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chest Plate of the Deciever.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cyrene%27s Brow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dagger of the Deceiver.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dungeon-Master.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Doom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GameOver.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
